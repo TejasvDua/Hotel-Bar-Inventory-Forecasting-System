@@ -97,6 +97,37 @@ Managing inventory in a hotel bar is challenging due to fluctuating demand and t
 
 ## Example Output
 
+```
+# Example: Get inventory recommendation and forecast using the Gradio interface
+
+def get_inventory_forecast(bar_name, brand_name):
+    # Preprocess input data for selected bar and brand
+    data = preprocess_data(bar_name, brand_name)
+    # Generate forecast with AutoARIMA
+    forecast = model.predict(data)
+    # Calculate recommended par level
+    par_level = calculate_par_level(forecast)
+    # Return results
+    return {
+        "forecast": forecast,
+        "recommended_par_level": par_level
+    }
+```
+
+---
+
+## Project Structure
+
+```
+.
+├── kristalball_assignment-2.ipynb           # Main notebook with code and Gradio interface
+├── data/
+│   └── Consumption Dataset - Dataset (1).csv  # Example dataset (user-supplied)
+├── requirements.txt                        # List of dependencies
+└── README.md                               # Project documentation
+```
+
+
 After selecting a bar and brand, you will see:
 
 - **Summary:**  
@@ -152,7 +183,8 @@ After selecting a bar and brand, you will see:
 
 ## License
 
-This project is open-source and free to use. Modify and distribute as you see fit.
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
 
 ---
 
